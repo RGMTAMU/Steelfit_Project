@@ -1,0 +1,12 @@
+<p>
+  <strong>User:</strong>
+  <%= @grocerylist.user %>
+</p> 
+<p>
+  <strong>Grocery list:</strong><br>
+  <%= text_area_tag(:grocerylist, @grocerylist.grocerylist, size: "40x10", disabled: true ) %>
+</p>
+
+<%= link_to 'Back', grocerylists_path %>
+
+

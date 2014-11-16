@@ -1,0 +1,22 @@
+<%= javascript_include_tag 'jquery_ujs' %>
+<h1>Listing All Grocery Lists</h1>
+<%= link_to 'Create a new grocery list', new_grocerylist_path %>
+ 
+<table>
+  <tr>
+    <th>User</th>
+    <th>Grocery List</th>
+	<th colspan="3"></th>
+  </tr>
+ 
+  <% @grocerylists.each do |grocerylist| %>
+    <tr>
+      <td><%= grocerylist.user %></td>
+      <td><%= grocerylist.grocerylist %></td>
+      <td><%= link_to 'Show', grocerylist_path(grocerylist) %></td>
+      <td><%= link_to 'Edit', edit_grocerylist_path(grocerylist) %></td>
+      <td><%= link_to 'Destroy', grocerylist_path(grocerylist), :method => :delete, :onclick => "return confirm('Are you sure you want to delete this post?')"%></td>
+    </tr>
+  <% end %>
+</table>
+

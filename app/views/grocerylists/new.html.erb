@@ -1,0 +1,38 @@
+<%= form_for :grocerylist, url: grocerylists_path do |f| %>
+
+  <% if @grocerylist.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@grocerylist.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @grocerylist.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <p>
+    <%= f.label :user %><br>
+    <%= f.text_field :user, :value => "Todd Shelton" %>
+  </p>
+ 
+  <p>
+    <%= f.label :grocerylist, 'Grocery List' %><br>
+    <%= f.text_area(:grocerylist, :value => "ingrediant 1
+ingrediant 2
+ingrediant 3
+ingrediant 4", size: "40x10") %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', grocerylists_path %>
